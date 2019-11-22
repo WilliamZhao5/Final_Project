@@ -16,7 +16,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity {
 
     private com.google.android.gms.maps.GoogleMap map;
 
@@ -31,16 +31,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
         addEvent.setOnClickListener(unused -> addClicked());
 
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        // Add a marker in Sydney, Australia, and move the camera.
-        LatLng uiuc = new LatLng(40.101887, -88.227376);
-        mMap.addMarker(new MarkerOptions().position(uiuc).title("Marker in UIUC"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(uiuc));
     }
 
     private void addClicked() {
