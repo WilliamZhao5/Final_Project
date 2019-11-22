@@ -14,8 +14,8 @@
 
     <RelativeLayout
         android:id="@+id/relaLayout"
-        android:layout_width="389dp"
-        android:layout_height="50dp"
+        android:layout_width="401dp"
+        android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:background="#fff"
         android:elevation="10dp"
@@ -25,11 +25,11 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="340dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginRight="20dp"
             android:src="@drawable/ic_magnify"></ImageView>
 
@@ -37,7 +37,6 @@
             android:id="@+id/input_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
             android:background="@null"
             android:hint="Enter Location, Building, or Library"
             android:textColor="#000"
