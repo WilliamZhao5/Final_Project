@@ -31,16 +31,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         EditText event = findViewById(R.id.eventName);
-        eventName = event.getText().toString();
+        if (event != null) {
+            eventName = event.getText().toString();
+        }
 
         EditText location = findViewById(R.id.eventLocation);
-        locationName = location.getText().toString();
+        if (location != null) {
+            locationName = location.getText().toString();
+
+        }
 
         EditText eventTime = findViewById(R.id.eventTime);
-        time = Integer.parseInt(eventTime.getText().toString());
+        if (eventTime != null) {
+            if (eventTime.getText().toString().length() != 0) {
+                time = Integer.parseInt(eventTime.getText().toString());
+            }
+        }
 
         EditText eventDate = findViewById(R.id.eventDate);
-        date = Integer.parseInt(eventDate.getText().toString());
+        if (eventDate != null) {
+            if (eventDate.getText().toString().length() != 0) {
+                date = Integer.parseInt(eventDate.getText().toString());
+            }
+        }
 
         final Button addEvent = findViewById(R.id.addEvent);
 
