@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MainActivity extends AppCompatActivity {
 
     private String eventName;
-    private String locationName;
+    public String locationName;
     private int time;
     private int date;
 

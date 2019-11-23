@@ -18,6 +18,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -30,12 +31,15 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
 
     private EditText mSearchText;
 
+    final float defaultMapZoom = 17f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shows_map);
 
         mSearchText = findViewById(R.id.input_search);
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -76,7 +80,14 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
             Address address = list.get(0);
             Log.d("PP", "found location: " + address.toString());
             //Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
+            moveCamera(new LatLng(address.getLatitude(), address.getLongitude()), defaultMapZoom, "Event Location");
         }
+    }
+
+    private void moveCamera(LatLng latLng, float zoom, String title) {
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+        MarkerOptions options = new MarkerOptions().position(latLng).title(title);
+        mMap.addMarker(options);
     }
 
     @Override
@@ -85,7 +96,6 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
 
         // Add a marker in Sydney, Australia, and move the camera.
         LatLng location = new LatLng(40.104869, -88.227146);
-        final float defaultMapZoom = 17f;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                 new LatLng(location.latitude, location.longitude), defaultMapZoom));
         mMap.addMarker(new MarkerOptions().position(location).title("Marker in UIUC"));
