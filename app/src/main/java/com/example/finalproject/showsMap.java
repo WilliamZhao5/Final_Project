@@ -35,6 +35,9 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
     private EditText mSearchText;
 
     private String loca;
+    private String eveName;
+    private String eveTime;
+    private String eveDate;
 
     final float defaultMapZoom = 17f;
 
@@ -54,6 +57,9 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
 
         Intent intent = getIntent();
         loca = intent.getStringExtra("Location");
+        eveName = intent.getStringExtra("Name");
+        eveDate = intent.getStringExtra("Date");
+        eveTime = intent.getStringExtra("Time");
 
         mSearchText.setText(loca);
 
@@ -96,7 +102,7 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
             Address address = list.get(0);
             Log.d("PP", "found location: " + address.toString());
             //Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
-            moveCamera(new LatLng(address.getLatitude(), address.getLongitude()), defaultMapZoom, "Event Location");
+            moveCamera(new LatLng(address.getLatitude(), address.getLongitude()), defaultMapZoom, eveName + " at " + loca + " at " + eveTime + " on " + eveDate);
         }
     }
 

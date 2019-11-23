@@ -11,8 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String eventName;
     public String locationName;
-    private int time;
-    private int date;
+    private String time;
+    private String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +40,22 @@ public class MainActivity extends AppCompatActivity {
         EditText eventTime = findViewById(R.id.eventTime);
         if (eventTime != null) {
             if (eventTime.getText().toString().length() != 0) {
-                time = Integer.parseInt(eventTime.getText().toString());
+                time = eventTime.getText().toString();
             }
         }
 
         EditText eventDate = findViewById(R.id.eventDate);
         if (eventDate != null) {
             if (eventDate.getText().toString().length() != 0) {
-                date = Integer.parseInt(eventDate.getText().toString());
+                date = eventDate.getText().toString();
             }
         }
 
         Intent intent = new Intent(this, showsMap.class);
         intent.putExtra("Location", locationName);
+        intent.putExtra("Name", eventName);
+        intent.putExtra("Time", time);
+        intent.putExtra("Date", date);
         startActivity(intent);
         finish();
     }
