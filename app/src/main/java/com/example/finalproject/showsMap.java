@@ -8,8 +8,10 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,8 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
 
     private EditText mSearchText;
 
+    protected String loca;
+
     final float defaultMapZoom = 17f;
 
     @Override
@@ -39,6 +43,16 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
         setContentView(R.layout.activity_shows_map);
 
         mSearchText = findViewById(R.id.input_search);
+
+        //LinearLayout main = findViewById(R.id.listChunk);
+
+        //View onGoingChunk = getLayoutInflater().inflate(R.layout.activity_main,
+                //main, false);
+
+        //EditText setLocation = onGoingChunk.findViewById(R.id.eventLocation);
+
+        mSearchText.setText(loca);
+        System.out.println("loca: " + loca + ".");
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

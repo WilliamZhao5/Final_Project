@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends showsMap {
 
     private String eventName;
     public String locationName;
@@ -19,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Button addEvent = findViewById(R.id.addEvent);
+
+        addEvent.setOnClickListener(unused -> addClicked());
+
+    }
+
+    private void addClicked() {
         EditText event = findViewById(R.id.eventName);
         if (event != null) {
             eventName = event.getText().toString();
@@ -27,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         EditText location = findViewById(R.id.eventLocation);
         if (location != null) {
             locationName = location.getText().toString();
-
+            loca = locationName;
+            System.out.println("gggggg: " + locationName);
         }
 
         EditText eventTime = findViewById(R.id.eventTime);
@@ -44,13 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        final Button addEvent = findViewById(R.id.addEvent);
-
-        addEvent.setOnClickListener(unused -> addClicked());
-
-    }
-
-    private void addClicked() {
         Intent intent = new Intent(this, showsMap.class);
         startActivity(intent);
         finish();
