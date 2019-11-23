@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends showsMap {
+public class MainActivity extends AppCompatActivity {
 
     private String eventName;
     public String locationName;
@@ -34,8 +34,7 @@ public class MainActivity extends showsMap {
         EditText location = findViewById(R.id.eventLocation);
         if (location != null) {
             locationName = location.getText().toString();
-            loca = locationName;
-            System.out.println("gggggg: " + locationName);
+            System.out.println("Location: " + locationName);
         }
 
         EditText eventTime = findViewById(R.id.eventTime);
@@ -53,6 +52,7 @@ public class MainActivity extends showsMap {
         }
 
         Intent intent = new Intent(this, showsMap.class);
+        intent.putExtra("Location", locationName);
         startActivity(intent);
         finish();
     }

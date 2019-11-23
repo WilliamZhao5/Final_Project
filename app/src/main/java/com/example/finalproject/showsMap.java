@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.nfc.Tag;
@@ -33,7 +34,7 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
 
     private EditText mSearchText;
 
-    protected String loca;
+    private String loca;
 
     final float defaultMapZoom = 17f;
 
@@ -51,9 +52,10 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
 
         //EditText setLocation = onGoingChunk.findViewById(R.id.eventLocation);
 
-        mSearchText.setText(loca);
-        System.out.println("loca: " + loca + ".");
+        Intent intent = getIntent();
+        loca = intent.getStringExtra("Location");
 
+        mSearchText.setText(loca);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
