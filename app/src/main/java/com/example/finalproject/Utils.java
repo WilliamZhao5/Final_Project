@@ -1,6 +1,6 @@
 package com.example.finalproject;
 
 public class Utils {
-    public static final String EMAIL = "yueweiy2@illinois.edu";
-    public static final String PASSWORD = "yyw2019_Y";
+    public static final String EMAIL = "ryan_march1_2016@outlook.com";
+    public static final String PASSWORD = "yyw981228";
 }
