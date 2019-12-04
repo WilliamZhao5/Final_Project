@@ -37,12 +37,23 @@ public class MainActivity extends AppCompatActivity {
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentt = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + email.getText().toString()));
-                intentt.putExtra(Intent.EXTRA_SUBJECT,subject.getText().toString());
-                intentt.putExtra(Intent.EXTRA_TEXT,message.getText().toString());
-                startActivity(intentt);
+                //Intent intentt = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + email.getText().toString()));
+                //intentt.putExtra(Intent.EXTRA_SUBJECT,subject.getText().toString());
+                //intentt.putExtra(Intent.EXTRA_TEXT,message.getText().toString());
+                //startActivity(intentt);
+                sendEmail();
             }
         });
+    }
+    private void sendEmail() {
+        String mail = email.getText().toString().trim();
+        String getMessage = message.getText().toString();
+        String getSubject = subject.getText().toString().trim();
+
+        //send mail
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this,mail,getSubject,getMessage);
+
+        javaMailAPI.execute();
     }
 
     private void addClicked() {
