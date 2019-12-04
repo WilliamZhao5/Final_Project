@@ -3,7 +3,9 @@ package com.example.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -14,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
     private String time;
     private String date;
 
+    //send email button
+    EditText email, subject, message;
+    Button sendEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +28,21 @@ public class MainActivity extends AppCompatActivity {
         final Button addEvent = findViewById(R.id.addEvent);
 
         addEvent.setOnClickListener(unused -> addClicked());
+        //find button
+        email = findViewById(R.id.emailAddress);
+        subject = findViewById(R.id.emailSubject);
+        message = findViewById(R.id.emailMessage);
+        sendEmail = findViewById(R.id.sendEmail);
 
+        sendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentt = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + email.getText().toString()));
+                intentt.putExtra(Intent.EXTRA_SUBJECT,subject.getText().toString());
+                intentt.putExtra(Intent.EXTRA_TEXT,message.getText().toString());
+                startActivity(intentt);
+            }
+        });
     }
 
     private void addClicked() {
@@ -59,4 +79,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    //send email button
+//    private void sendButton() {
+//        EditText email = findViewById(R.id.emailAddress);
+//        if (email != null) {
+//            emailAddress =
+//        }
+//    }
 }
