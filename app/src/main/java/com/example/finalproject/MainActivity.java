@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         String getMessage1 = eventName + " at " + locationName + " at " + time + " on " + date;
         String getSubject1 = "Event Reminder from Smart Notes";
 
-        if (getSubject2 != null || getMessage2 != null) {
+        if (getSubject2.length() != 0 && getMessage2.length() != 0) {
             getSubject = getSubject2;
             getMessage = getMessage2;
         } else {
