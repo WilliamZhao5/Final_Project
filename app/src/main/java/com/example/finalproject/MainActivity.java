@@ -46,9 +46,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void sendEmail() {
+        String getSubject;
+        String getMessage;
+
         String mail = email.getText().toString().trim();
-        String getMessage = message.getText().toString();
-        String getSubject = subject.getText().toString().trim();
+
+        String getMessage2 = message.getText().toString();
+        String getSubject2 = subject.getText().toString().trim();
+
+        String getMessage1 = eventName + " at " + locationName + " at " + time + " on " + date;
+        String getSubject1 = "Event Reminder from Smart Notes";
+
+        if (getSubject2 != null || getMessage2 != null) {
+            getSubject = getSubject2;
+            getMessage = getMessage2;
+        } else {
+            getSubject = getSubject1;
+            getMessage = getMessage1;
+        }
 
         //send mail
         JavaMailAPI javaMailAPI = new JavaMailAPI(this,mail,getSubject,getMessage);
@@ -88,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("Time", time);
         intent.putExtra("Date", date);
         startActivity(intent);
+
+        sendEmail();
+
         finish();
     }
     //send email button
