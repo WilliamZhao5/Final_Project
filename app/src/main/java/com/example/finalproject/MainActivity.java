@@ -37,10 +37,6 @@ public class MainActivity extends AppCompatActivity {
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intentt = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + email.getText().toString()));
-                //intentt.putExtra(Intent.EXTRA_SUBJECT,subject.getText().toString());
-                //intentt.putExtra(Intent.EXTRA_TEXT,message.getText().toString());
-                //startActivity(intentt);
                 sendEmail();
             }
         });
@@ -108,11 +104,4 @@ public class MainActivity extends AppCompatActivity {
 
         finish();
     }
-    //send email button
-//    private void sendButton() {
-//        EditText email = findViewById(R.id.emailAddress);
-//        if (email != null) {
-//            emailAddress =
-//        }
-//    }
 }

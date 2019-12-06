@@ -48,13 +48,6 @@ public class showsMap extends FragmentActivity implements OnMapReadyCallback {
 
         mSearchText = findViewById(R.id.input_search);
 
-        //LinearLayout main = findViewById(R.id.listChunk);
-
-        //View onGoingChunk = getLayoutInflater().inflate(R.layout.activity_main,
-                //main, false);
-
-        //EditText setLocation = onGoingChunk.findViewById(R.id.eventLocation);
-
         Intent intent = getIntent();
         loca = intent.getStringExtra("Location");
         eveName = intent.getStringExtra("Name");
